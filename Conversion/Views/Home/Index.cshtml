@@ -1,0 +1,40 @@
+﻿@model Conversion.Models.ViewModels.ViewModels.IndexViewModel
+@*
+
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/index.css" />
+</head>
+<body>
+    <h1>Conversión</h1>
+    <form action="/Home">
+        <label>Convertir a:</label>
+        <input type="radio" name="moneda" value="USD" /> <label>USD</label>
+        <input type="radio" name="moneda" value="MXN" /> <label>MXN</label>
+
+        <br />
+        <input type="number" name="valor" placeholder="0.00" />
+
+        <input type="submit" value="Convertir" />
+        <br />
+        <br />
+
+        <label>
+            Resultado: @Model.Resultado.ToString("$0.00") @if (Model.Moneda == "MXN")
+            {
+                <text>MXM</text>
+            }
+            else
+            {
+                <text>USD</text>
+            }
+        </label>
+
+    </form>
+</body>
+</html>
